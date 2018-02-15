@@ -1,11 +1,18 @@
-<?php?>
-<html>
-<head>
-    <meta charset="utf-8">
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
-    <script src="lib.js"></script>
-</head>
-<button>Hello World</button>
-</html>
+<?php
+setlocale(LC_TIME, "de_DE");
+$url = $_GET['Url'];
+
+if($url == 'date'){
+    echo 'Datum laut Serverzeit:';
+    echo strftime("%D");
+}
+
+if($url == 'day' ){
+    echo ("Heute ist ");
+    echo strftime("%A.");
+}
+
+if($url =='month'){
+    echo  ("Aktueller Monat: ");
+    echo  strftime("%B.");
+}
