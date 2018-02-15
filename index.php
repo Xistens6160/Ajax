@@ -1,18 +1,32 @@
 <?php
 setlocale(LC_TIME, "de_DE");
 $url = $_GET['Url'];
+$message = [];
 
 if($url == 'date'){
-    echo 'Datum laut Serverzeit:';
-    echo strftime("%D");
+    $message = strftime("%D");
 }
 
 if($url == 'day' ){
-    echo ("Heute ist ");
-    echo strftime("%A.");
+    $message = strftime("%A");
 }
 
-if($url =='month'){
-    echo  ("Aktueller Monat: ");
-    echo  strftime("%B.");
+if($_GET['month']){
+    $message = strftime("%B");
 }
+
+if($url == 'year'){
+    $message =strftime("%G");
+}
+
+if ($url == 'Date'){
+    $datum =$_GET['datum'];
+    $tag = strftime($datum);
+    $wochentag = date("l", $tag );
+   $message =  $wochentag;
+}
+
+$json = json_encode($message);
+echo $json;
+
+
